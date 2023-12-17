@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess Number Game</title>
+</head>
+<body>
+
+<script>
+  function guessNumberGame() {
+    var correctNumber = Math.floor((Math.random() * 10) + 1);
+    var guessedCorrectly = false;
+
+    while (!guessedCorrectly) {
+      var userInput = prompt("Guess the number between 1 and 10:");
+
+      if (userInput === null) {
+        // User pressed Cancel
+        alert("Game aborted. The correct number was " + correctNumber + ".");
+        break;
+      }
+
+      var userGuess = parseInt(userInput);
+
+      if (isNaN(userGuess)) {
+        alert("Invalid input. Please enter a number.");
+      } else if (userGuess < 1 || userGuess > 10) {
+        alert("Number out of range. Please enter a number between 1 and 10.");
+      } else if (userGuess === correctNumber) {
+        alert("Congratulations! You guessed the correct number: " + correctNumber + ".");
+        guessedCorrectly = true;
+      } else {
+        alert("Incorrect guess. Try again!");
+      }
+    }
+  }
+
+  // Start the game
+  guessNumberGame();
+</script>
+
+</body>
+</html>
